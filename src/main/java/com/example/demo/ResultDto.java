@@ -4,5 +4,6 @@ import lombok.Data;
 
 @Data
 public class ResultDto {
-    private String row;
+    private String id;
+    private String result;
 }

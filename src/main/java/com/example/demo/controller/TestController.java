@@ -21,11 +21,8 @@ public class TestController {
     private final TestService testService;
 
     @GetMapping
-    public String request(@RequestParam String itemName, Model model) {
-        log.info(itemName);
-        Set<String> strings = testService.requestNaver(itemName);
-        strings.forEach(value -> log.info(value));
-        model.addAttribute("results", strings);
+    public String request(@RequestParam(defaultValue = "모니터암") String itemName, Model model) {
+        model.addAttribute("results",  testService.requestNaver(itemName));
         return "index";
     }
 

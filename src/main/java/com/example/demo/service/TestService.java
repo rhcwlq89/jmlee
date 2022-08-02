@@ -26,7 +26,7 @@ public class TestService {
     private static final String TAG_HREF = "href";
     private static final String SPLITTER  = "/";
 
-    public Set<String> requestNaver(String keyword) {
+    public Set<ResultDto> requestNaver(String keyword) {
         try{
             Document list = naverClient.list(keyword);
             return search(list);
@@ -45,16 +45,17 @@ public class TestService {
         }
     }
 
-    private Set<String> search(Document next) {
-        Set<String> set = new HashSet<>();
+    private Set<ResultDto> search(Document next) {
+        Set<ResultDto> set = new HashSet<>();
         Elements total_tit = next.getElementsByClass(TOTAL_TIT);
         total_tit.forEach(element -> {
             String href = element.attr(TAG_HREF);
 
             if(href.startsWith(NAVER_BLOG_STRING)) {
                 String id = href.split(SPLITTER)[3];
-                ResultDto list = munHoYoungClient.list(id);
-                set.add(list.getRow());
+                ResultDto result = munHoYoungClient.list(id);
+                result.setId(id);
+                set.add(result);
             }
         });
 

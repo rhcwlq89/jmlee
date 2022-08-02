@@ -6,7 +6,7 @@
           href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         .container {
-            max-width: 560px;
+            max-width: 1000px;
         }
     </style>
 </head>
@@ -30,12 +30,13 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th th:text="${itemName}">결과</th>
+                    <th>결과</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="result : ${results}">
-                    <td th:text="${result.row}"></td>
+                <tr th:each="result: ${results}">
+                    <td th:text="${result.id}"></td>
+                    <td th:text="${result.result}"></td>
                 </tr>
             </tbody>
         </table>
