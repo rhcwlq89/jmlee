@@ -10,7 +10,6 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Service
@@ -26,22 +25,13 @@ public class TestService {
     private static final String TAG_HREF = "href";
     private static final String SPLITTER  = "/";
 
-    public Set<ResultDto> requestNaver(String keyword) {
+    public Set<ResultDto> requestNaver(String keyword, Long index) {
         try{
-            Document list = naverClient.list(keyword);
+            Document list = naverClient.list(keyword, index);
             return search(list);
         } catch(Exception e) {
             e.printStackTrace();
             return null;
-        }
-    }
-
-    public void requestNext(String keyword, Long start) {
-        try{
-            Document list = naverClient.next(keyword, start);
-            search(list);
-        } catch(Exception e) {
-            e.printStackTrace();
         }
     }
 

@@ -5,7 +5,5 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 
 public interface NaverClient {
-    Document list(String keyword) throws IOException;
-
-    Document next(String keyword, Long page) throws IOException;
+    Document list(String keyword, Long index) throws IOException;
 }

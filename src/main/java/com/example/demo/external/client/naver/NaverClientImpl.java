@@ -27,14 +27,9 @@ public class NaverClientImpl implements NaverClient{
     private final RootClientProxy naverRootClientProxy;
 
     @Override
-    public Document list(String keyword) throws IOException {
-        Connection connect = Jsoup.connect(SEARCH_NAVER_URL + keyword + "&sm=tab_opt");
+    public Document list(String keyword, Long index) throws IOException {
+        Connection connect = Jsoup.connect(SEARCH_NAVER_URL + keyword + "&sm=tab_opt" + "&start=" + index);
         return connect.get();
     }
 
-    @Override
-    public Document next(String keyword, Long page) throws IOException {
-        Connection connect = Jsoup.connect(SEARCH_NAVER_URL + keyword + "&start=" + page);
-        return connect.get();
-    }
 }
