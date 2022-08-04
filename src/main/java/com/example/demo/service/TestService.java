@@ -45,6 +45,7 @@ public class TestService {
                 String id = href.split(SPLITTER)[3];
                 ResultDto result = munHoYoungClient.list(id);
                 result.setId(id);
+                result.setHref(href);
                 set.add(result);
             }
         });

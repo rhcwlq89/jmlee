@@ -6,4 +6,5 @@ import lombok.Data;
 public class ResultDto {
     private String id;
     private String result;
+    private String href;
 }

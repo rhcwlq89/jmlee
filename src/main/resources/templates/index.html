@@ -59,9 +59,11 @@
                 let row = table.insertRow();
                 let id = row.insertCell();
                 let result = row.insertCell();
+                let href = row.insertCell();
 
                 id.innerText = element.id;
                 result.innerText = element.result;
+                href.innerHTML = `<a href="${element.href}" target='_blank'>link</a>`;
             });
 
             document.getElementById("index").value = parseInt(index) + 30;
