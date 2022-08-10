@@ -1,0 +1,11 @@
+spring:
+  security:
+    user:
+      name: user
+      password: 1234
+
+logging:
+  level:
+    com.example.demo : debug
+    org.apache.coyote.http11.Http11InputBuffer: DEBUG
+    org.springframework.web: DEBUG
